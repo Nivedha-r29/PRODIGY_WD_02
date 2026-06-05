@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GlassStop — Dark Neon Premium Stopwatch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page-bg">
+        <div class="app">
+            <header class="app-header">
+                <nav class="site-nav">
+                    <div class="brand">
+                        <div class="logo">GlassStop</div>
+                        <div class="tag">Dark Neon Edition</div>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" id="downloadLink" class="nav-link">Export Laps</a></li>
+                    </ul>
+                    <div class="realtime">
+                        <div id="currentClock" aria-live="polite"></div>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="card">
+                <div class="main-left">
+                <section class="display">
+                    <div class="time-wrap">
+                        <div id="timer" class="timer">00:00:00.000</div>
+                        <div class="meta">Elapsed</div>
+                    </div>
+
+                    <div class="progress-ring" aria-hidden>
+                        <svg viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="52" class="ring-bg" />
+                            <circle cx="60" cy="60" r="52" class="ring" id="ring" />
+                        </svg>
+                    </div>
+                </section>
+
+                <section class="controls">
+                    <div class="btn-row">
+                        <button id="startBtn" class="btn primary">Start</button>
+                        <button id="pauseBtn" class="btn">Pause</button>
+                        <button id="lapBtn" class="btn">Lap</button>
+                        <button id="resetBtn" class="btn danger">Reset</button>
+                    </div>
+
+                    <div class="extras">
+                        <label class="small">Auto-lap every
+                            <select id="autoLapInterval">
+                                <option value="0">Off</option>
+                                <option value="30">30s</option>
+                                <option value="60" selected>1m</option>
+                                <option value="300">5m</option>
+                            </select>
+                        </label>
+
+                        <label class="small">Format
+                            <select id="formatSelect">
+                                <option value="ms">HH:MM:SS.mmm</option>
+                                <option value="short">MM:SS.mmm</option>
+                            </select>
+                        </label>
+
+                        <button id="exportBtn" class="btn small">Export Laps</button>
+                    </div>
+                </section>
+
+                <section class="laps">
+                    <div class="laps-header">
+                        <h3>Laps</h3>
+                        <div class="lap-actions">
+                            <button id="copyBtn" class="btn tiny">Copy</button>
+                            <button id="clearLapsBtn" class="btn tiny">Clear</button>
+                        </div>
+                    </div>
+                    <ol id="lapList" class="lap-list" aria-live="polite"></ol>
+                </section>
+
+                <section class="countdown card-sub">
+                    <h4>Countdown Utility</h4>
+                    <div class="cd-row">
+                        <input id="cdInput" placeholder="MM:SS" />
+                        <button id="cdStart" class="btn small">Start</button>
+                        <button id="cdStop" class="btn small">Stop</button>
+                    </div>
+                    <div id="cdDisplay" class="cd-display">00:00</div>
+                </section>
+                </div>
+
+                <aside class="dashboard">
+                    <h3>Dashboard</h3>
+                    <div class="stat"><div class="label">Total Time</div><div id="totalTime" class="value">00:00:00.000</div></div>
+                    <div class="stat"><div class="label">Session Uptime</div><div id="sessionUptime" class="value">00:00:00</div></div>
+                    <div class="stat"><div class="label">Laps</div><div id="lapCount" class="value">0</div></div>
+                    <div class="stat"><div class="label">Best Lap</div><div id="bestLap" class="value">—</div></div>
+                    <div class="stat"><div class="label">Avg Lap</div><div id="avgLap" class="value">—</div></div>
+                    <div class="stat"><div class="label">Pace (laps/min)</div><div id="pace" class="value">0</div></div>
+                    <div class="stat"><div class="label">FPS</div><div id="fpsDisplay" class="value">0</div></div>
+
+                    <div class="dash-actions">
+                        <label class="theme-toggle">Theme
+                            <select id="themeToggle"><option value="dark">Neon Cyan</option><option value="neon-purple">Neon Purple</option><option value="synthwave">Synthwave</option></select>
+                        </label>
+                        <button id="resetSession" class="btn tiny">Reset Session</button>
+                    </div>
+                </aside>
+            </main>
+
+            <!-- Getting Started section removed per request -->
+
+            <footer class="app-footer">
+                <small>Designed with dark neon • Responsive • Real-time stats • Multiple themes</small>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <div class="doodle-bg" aria-hidden></div>
+</body>
+</html>
